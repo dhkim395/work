@@ -1,5 +1,5 @@
 const name = ["와플", "강동", "애옹", "크롱", "라임", "초코", "바다"];
-const family = ["강아지", "고양이", "도마뱀", "앵무새", "잉어"];
+const family = ["Dog", "Cat", "lizard", "bird", "fish"];
 const age = [1, 3, 2.4, 5, 8, 1.4, 10, 11, 13, 15];
 function Random(menu) {
   return menu[Math.floor(Math.random() * menu.length)];
@@ -35,46 +35,49 @@ class Pet {
     this.energy = plus(this.energy + 40);
     this.hunger = plus(this.hunger + 10);
   }
+  speak() {
+    return "";
+  }
 }
 
 class Dog extends Pet {
   constructor(name, age) {
-    super(name, "Dog", age);
+    super(name, age, "Dog");
   }
   speak() {
-    console.log("멍멍!");
+    return "멍멍!";
   }
 }
 class Cat extends Pet {
   constructor(name, age) {
-    super(name, "Cat", age);
+    super(name, age, "Cat");
   }
   speak() {
-    console.log("야용!");
+    return "야옹!";
   }
 }
 class bird extends Pet {
   constructor(name, age) {
-    super(name, "bird", age);
+    super(name, age, "bird");
   }
   speak() {
-    console.log("짹짹!");
+    return "짹짹!";
   }
 }
 class lizard extends Pet {
   constructor(name, age) {
-    super(name, "lizard", age);
+    super(name, age, "lizard");
   }
   speak() {
-    console.log("크으윽!");
+    return "크으윽!";
   }
 }
 class fish extends Pet {
   constructor(name, age) {
-    super(name, "fish", age);
+    super(name, age, "fish");
   }
   speak() {
-    console.log("뻐끔!");
+    return "뻐끔!";
   }
 }
 class Petmanager {
@@ -82,31 +85,33 @@ class Petmanager {
     this.pet = [];
   }
   addpet(pet) {
-    this.pet.push.pets();
+    this.pet.push(pet); // 배열에 추가
   }
+
   simulateDay(day) {
     console.log(`--- Day ${day} ---`);
-    this.pets.forEach((pet) => {
+    this.pet.forEach((pet) => {
       console.log(`[${pet.family}] ${pet.name}: ${pet.speak()}`);
       const game = Random(["eat", "play", "sleep"]);
-      pet[action]();
+      pet[game](); // eat, play, sleep 중 하나 실행
       console.log(`${pet.name}은(는) ${game}()을 했습니다.`);
-      console.log(pet.getInfo());
+      pet.getInfo(); // 내부에서 console.log 수행
     });
     console.log("----------------------");
   }
+
   showAllPets() {
-    console.log(":클립보드: 전체 펫 목록");
-    this.pets.forEach((pet) => {
-      console.log(pet.getInfo());
+    console.log("전체 펫 목록");
+    this.pet.forEach((pet) => {
+      pet.getInfo();
     });
   }
 }
 const manager = new Petmanager();
 
-const petCount = Math.floor(Math.random() * 3) + 3;
+const Count = Math.floor(Math.random() * 3) + 3;
 
-for (let i = 0; i < petCount; i++) {
+for (let i = 0; i < Count; i++) {
   const names = Random(name);
   const families = Random(family);
   const ages = Random(age);
