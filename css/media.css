@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ownglyph_corncorn-Rg";
+  line-height: 1.6;
+}
+/* 모바일은 가로 100퍼로 꽉 채워주기 */
+#container {
+  width: 100%;
+}
+header {
+  width: 100%;
+}
+header > h1 {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+
+#menus {
+  width: 100%;
+}
+
+#menus > div {
+  height: 300px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+  position: relative;
+  margin-bottom: 25px;
+}
+#menus h2 {
+  position: absolute;
+  right: 3%;
+  bottom: 10px;
+  color: white;
+  text-shadow: 3px 3px 5px white;
+}
+#menus1,
+#menus2,
+#menus3,
+#menus4,
+#menus5 {
+  width: 100%;
+}
+#menus1 {
+  background: url(../travel1.jpg) no-repeat center/cover;
+}
+#menus2 {
+  background: url(../travel2.jpg) no-repeat center/cover;
+}
+#menus3 {
+  background: url(../travel3.jpg) no-repeat center/cover;
+}
+#menus4 {
+  background: url(../travel4.jpg) no-repeat center/cover;
+}
+#menus5 {
+  background: url(../travel5.jpg) no-repeat center/cover;
+}
+footer {
+  width: 100%;
+  background-color: black;
+  height: 100px;
+}
+footer > p {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+}
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #menus {
+    display: flex;
+    /* 양쪽 정렬 끝쪽 띄우기 */
+    justify-content: space-between;
+    /* 줄바꿈 속성 */
+    flex-wrap: wrap;
+  }
+  #menus1,
+  #menus2,
+  #menus3,
+  #menus4 {
+    width: 49%;
+  }
+}
+/* 데스크톱 */
+@media (min-width: 1024px) {
+  #menus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #menus1,
+  #menus2,
+  #menus3,
+  #menus4 {
+    width: 33%;
+  }
+  #menus5 {
+    width: 66%;
+  }
+}

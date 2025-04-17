@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 모든 태그를 의미 (*)   */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ownglyph_corncorn-Rg";
+  /* 1.6 100하고도 60퍼정도 더 띄어줌 */
+  line-height: 1.6;
+}
+header,
+nav,
+main,
+section,
+article,
+aside,
+footer {
+  padding: 20px;
+}
+header {
+  background-color: ivory;
+  color: black;
+  text-align: center;
+}
+nav {
+  background-color: ivory;
+  color: blue;
+}
+
+nav ul {
+  display: flex;
+  /* 동그라미 사라짐 */
+  list-style: none;
+  justify-content: center;
+  gap: 50px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: ivory;
+}
+
+section {
+  background-color: ivory;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  margin-bottom: 10px;
+}
+aside {
+  background-color: ivory;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: ivory;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}

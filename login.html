@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <a href="./index.html">홈으로 가기</a>
+    <style>
+        @font-face {
+  font-family: "Ownglyph_corncorn-Rg";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  box-sizing: border-box;
+  font-family:Ownglyph_corncorn-Rg;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+}
+body{
+    background-color: ivory;
+    padding: 40px;
+    background: url(./desert.jpg) no-repeat fixed center/cover;
+}
+main{
+    max-width: 600px;
+    margin:0 auto;
+    background-color: bisque;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px rgba(0,0,0,0.1);
+}
+h1{
+    text-align: center;
+    margin-bottom: 50px;}
+form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+label{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+input,select,button{
+    padding: 10px;
+    width: 100%;
+    border:1px solid black;
+    border-radius: 10px;
+}
+input[type="checkbox"]{
+    width: auto;
+    margin-right: 10px;
+}
+.form-group.inline{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+fieldset{
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+}
+legend{
+    font-weight: bold;
+}
+.form-group{
+    margin-bottom: 15px;
+}
+button[type="submit"]
+{
+    background-color: green;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover{
+    background-color: red;
+}
+.footer-text{
+    position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: yellow;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+}
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>로그인</h1>
+      <form action="/signup" method="post">
+        <div class="form-group">
+          <label for="userid">아이디</label>
+          <input
+            type="text"
+            name="userid"
+            id="userid"
+            maxlength="20"
+            placeholder="아이디를 입력하세요"
+          />
+        </div>
+        <div class="form-group">
+          <label for="user password">비밀번호</label>
+          <input
+            type="password"
+            name="password"
+            id="user password"
+            maxlength="20"
+            placeholder="비밀번호를 입력하세요"
+          />
+        </div>
+        <fieldset>
+          <legend></legend>
+          <label for="remem">아이디를 기억하시겠습니까?</label>
+          <input type="checkbox" id="remem" name="remem" value="remem" />
+        </fieldset>
+        <button type="submit">로그인</button>
+        <p class="footer-text"><a href="#">비밀번호 찾기</p>
+      </form>
+    </main>
+  </body>
+</html>

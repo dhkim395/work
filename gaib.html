@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <a href="./index.html">홈으로 가기</a>
+    <style>
+      @font-face {
+        font-family: "Ownglyph_corncorn-Rg";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      * {
+        box-sizing: border-box;
+        font-size: 1.1rem;
+        font-family: Ownglyph_corncorn-Rg;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: ivory;
+        padding: 40px;
+      }
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: bisque;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: auto;
+        margin-right: 5px;
+      }
+      .form-group.inline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      fieldset {
+        border: 1px solid black;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      legend {
+        font-weight: bold;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      button[type="submit"] {
+        background-color: green;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: red;
+      }
+      .footer-text {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 20px;
+        color: #777;
+      }
+      .fixed-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: yellow;
+        color: red;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      }
+      .fixed-button:hover {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>회원가입</h1>
+      <form src="./js/regist.js">
+        <div class="form-group">
+          <label for="userid">아이디</label>
+          <input
+            type="text"
+            maxlength="20"
+            name="userid"
+            placeholder="아이디를 입력하시오"
+          />
+        </div>
+        <div class="form-group">
+          <label for="user password">비밀번호</label>
+          <input
+            type="password"
+            name="userpw"
+            id="user password"
+            maxlength="20"
+            placeholder="암호를 20글자 내 입력하시오"
+          />
+        </div>
+        <div class="form-group">
+          <label for="hacin">비밀번호 확인</label>
+          <input
+            type="password"
+            name="hacin"
+            id="hacin"
+            maxlength="20"
+            placeholder="암호를 한번 더 입력하시오"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            maxlength="100"
+            placeholder="이메일을 입력하시오"
+          />
+        </div>
+        <div class="form-group">
+          <label for="snn">주민등록번호</label>
+          <input
+            type="snn"
+            name="snn"
+            id="snn"
+            maxlength="14"
+            class="snn"
+            placeholder="주민등록번호를 입력하시오"
+          />
+        </div>
+        <button class="ssn">주민등록번호 검증</button>
+        <div class="form-group">
+          <label
+            >남자<input type="radio" name="gender" value="남" id="male" checked
+          /></label>
+          <label
+            >여자<input type="radio" name="gender" value="여" id="female"
+          /></label>
+        </div>
+        <fieldset>
+          <legend>관심사</legend>
+          <label for="sports">운동</label>
+          <input type="checkbox" id="sports" name="interest" value="sports" />
+          <label for="movie">영화</label>
+          <input type="checkbox" id="movie" name="interest" value="movie" />
+          <label for="sing">음악</label>
+          <input type="checkbox" id="sing" name="interest" value="sing" />
+          <label for="study">공부</label>
+          <input type="checkbox" id="study" name="interest" value="study" />
+          <label for="travel">여행</label>
+          <input type="checkbox" id="travel" name="interest" value="travel" />
+          <label for="guiter">기타</label>
+          <input type="checkbox" id="guiter" name="interest" value="guiter" />
+        </fieldset>
+
+        <div class="form-group">
+          <label for="intro">자기소개</label>
+          <textarea
+            name="intro"
+            id="intro"
+            placeholder="자기소개를 작성해 주세요."
+          >
+          </textarea>
+        </div>
+        <button type="submit">가입하기</button>
+        <p class="footer-text">
+          이미 가입을 하셨나요? <a href="./login.html" >로그인
+      </form>
+    </main>
+    <a href="#" class="fixed-button">도움말</a>
+  </body>
+</html>
