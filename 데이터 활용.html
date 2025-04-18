@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고속도로 구간 별 도로위험지수</title>
+    <script
+      defer
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c7359bbe49f10fa08229b1a78caefa9&autoload=false&libraries=services"
+    ></script>
+  </head>
+  <body>
+    <h2>고속도로 구간 별 도로위험지수</h2>
+    <label for="region">고속도로 선택</label>
+    <select name="region" id="region"></select>
+    <button onclick="loadData()">조회하기</button>
+    <div id="gosokInfo" id="weatherInfo">데이터를 불러오는 중입니다...</div>
+    <div id="map"></div>
+    <script>
+      let map;
+      let marker;
+      const serviceKey =
+        "fy5BXzZbOlT5f8Rm/vV7CSbFwdw2WNrfeE5oJcOl/fj6QY3vOzoIhLzhftkVLtK415OcxJVXkpJPurYA//WTwg==";
+      function loadData() {}
+    </script>
+  </body>
+</html>
