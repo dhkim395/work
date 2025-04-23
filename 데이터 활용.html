@@ -1,28 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>고속도로 구간 별 도로위험지수</title>
-    <script
-      defer
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c7359bbe49f10fa08229b1a78caefa9&autoload=false&libraries=services"
-    ></script>
+    <title>🚧 고속도로 위험지수 지도</title>
+    <style>
+      #map {
+        width: 100%;
+        height: 500px;
+        margin-top: 10px;
+      }
+      #gosokInfo {
+        margin-top: 15px;
+        background: #f9f9f9;
+        padding: 15px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+    </style>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7c7359bbe49f10fa08229b1a78caefa9&autoload=false"></script>
   </head>
   <body>
-    <h2>고속도로 구간 별 도로위험지수</h2>
-    <label for="region">고속도로 선택</label>
-    <select name="region" id="region"></select>
+    <h2>🚧 고속도로 위험지수 조회</h2>
+
+    <label for="region">고속도로 지역 선택</label>
+    <select name="region" id="region">
+      <option value="경부고속도로">경부고속도로</option>
+      <option value="경인고속도로">경인고속도로</option>
+      <option value="고색의왕간고속화도로">고색의왕간고속화도로</option>
+      <option value="고창담양고속도로">고창담양고속도로</option>
+      <option value="과천의왕간고속도로">과천의왕간고속도로</option>
+      <option value="광주대구고속도로">광주대구고속도로</option>
+      <option value="광주외곽순환고속도로">광주외곽순환고속도로</option>
+      <option value="광주원주고속도로">광주원주고속도로</option>
+      <option value="구리포천고속도로">구리포천고속도로</option>
+      <option value="남해고속도로제1지선">남해고속도로제1지선</option>
+      <option value="남해고속도로제2지선">남해고속도로제2지선</option>
+      <option value="남해제1고속도로지선">남해제1고속도로지선</option>
+      <option value="남해제3선고속도로지선">남해제3선고속도로지선</option>
+      <option value="남해제2고속도로지선">남해제2고속도로지선</option>
+      <option value="남해고속도로제3지선">남해고속도로제3지선</option>
+      <option value="남해고속도로">남해고속도로</option>
+      <option value="논산천안고속도로">논산천안고속도로</option>
+      <option value="당진영덕고속도로">당진영덕고속도로</option>
+      <option value="대구외곽순환고속도로">대구외곽순환고속도로</option>
+      <option value="대전남부순환고속도로">대전남부순환고속도로</option>
+      <option value="동해고속도로">동해고속도로</option>
+      <option value="무안광주고속도로">무안광주고속도로</option>
+      <option value="부산외곽순환고속도로">부산외곽순환고속도로</option>
+      <option value="상주영천고속도로">상주영천고속도로</option>
+      <option value="새만금포항고속도로">새만금포항고속도로</option>
+      <option value="서울문산고속도로">서울문산고속도로</option>
+      <option value="서울양양고속도로">서울양양고속도로</option>
+      <option value="서울외곽순환고속도로">서울외곽순환고속도로</option>
+      <option value="서울외곽순환고속도로램프">서울외곽순환고속도로램프</option>
+      <option value="서천공주고속도로">서천공주고속도로</option>
+      <option value="서해안고속도로">서해안고속도로</option>
+      <option value="세종포천고속도로">세종포천고속도로</option>
+      <option value="수도권제1순환고속도로">수도권제1순환고속도로</option>
+      <option value="수도제2권순환고속도로">수도제2권순환고속도로</option>
+      <option value="수원광명고속도로">수원광명고속도로</option>
+      <option value="순천완주고속도로">순천완주고속도로</option>
+      <option value="아산청주고속도로">아산청주고속도로</option>
+      <option value="영동고속도로">영동고속도로</option>
+      <option value="오산화성고속도로">오산화성고속도로</option>
+      <option value="옥산오창고속도로">옥산오창고속도로</option>
+      <option value="용인서울고속도로">용인서울고속도로</option>
+      <option value="울산고속도로">울산고속도로</option>
+      <option value="울산포항고속도로">울산포항고속도로</option>
+      <option value="익산포항고속도로">익산포항고속도로</option>
+      <option value="인천국제공항고속도로">인천국제공항고속도로</option>
+      <option value="제2경인고속도로">제2경인고속도로</option>
+      <option value="제2중부고속도로">제2중부고속도로</option>
+      <option value="제3경인고속화도로">제3경인고속화도로</option>
+      <option value="중부고속도로">중부고속도로</option>
+      <option value="중부내륙고속도로">중부내륙고속도로</option>
+      <option value="중부내륙고속도로지선">중부내륙고속도로지선</option>
+      <option value="중부내륙고속지선">중부내륙고속지선</option>
+      <option value="중부내륙지선고속도로">중부내륙지선고속도로</option>
+      <option value="중앙고속도로">중앙고속도로</option>
+      <option value="중앙고속도로지선">중앙고속도로지선</option>
+      <option value="천안논산고속도로">천안논산고속도로</option>
+      <option value="통영대전고속도로">통영대전고속도로</option>
+      <option value="평택시흥고속도로">평택시흥고속도로</option>
+      <option value="평택제천고속도로">평택제천고속도로</option>
+      <option value="평택화성간고속국도">평택화성간고속국도</option>
+      <option value="평택화성고속도로">평택화성고속도로</option>
+      <option value="함양울산고속도로">함양울산고속도로</option>
+      <option value="호남고속도로">호남고속도로</option>
+      <option value="호남고속도로지선">호남고속도로지선</option>
+    </select>
+
     <button onclick="loadData()">조회하기</button>
-    <div id="gosokInfo" id="weatherInfo">데이터를 불러오는 중입니다...</div>
+
     <div id="map"></div>
+    <div id="gosokInfo">데이터를 불러오는 중입니다...</div>
+
     <script>
-      let map;
-      let marker;
       const serviceKey =
         "fy5BXzZbOlT5f8Rm/vV7CSbFwdw2WNrfeE5oJcOl/fj6QY3vOzoIhLzhftkVLtK415OcxJVXkpJPurYA//WTwg==";
-      function loadData() {}
+      let map;
+      let markers = [];
+
+      window.onload = function () {
+        kakao.maps.load(() => {
+          const container = document.getElementById("map");
+          const options = {
+            center: new kakao.maps.LatLng(36.5, 127.5),
+            level: 13,
+          };
+          map = new kakao.maps.Map(container, options);
+        });
+      };
+
+      function clearMarkers() {
+        markers.forEach((marker) => marker.setMap(null));
+        markers = [];
+      }
+
+      function loadData() {
+        const roadName = document.getElementById("roadSelect").value;
+        const url = `http://apis.data.go.kr/B552061/roadDgdgrHighway/getRestRoadDgdgrHighway`;
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            const container = document.getElementById("gosokInfo");
+            const items = data.items || [];
+
+            clearMarkers();
+
+            const filtered = items.filter((item) => item.roadNm === roadName);
+
+            if (!filtered.length) {
+              container.innerHTML = `⚠️ ${roadName}에 대한 위험지수 데이터가 없습니다.`;
+              return;
+            }
+
+            container.innerHTML = `<strong>📍 ${roadName} 위험 정보</strong><ul>`;
+
+            filtered.forEach((item) => {
+              const lat = parseFloat(item.lat);
+              const lng = parseFloat(item.lng);
+              const risk = item.riskIndex ?? "정보 없음";
+              const grade = item.riskGrade ?? "-";
+              const section = item.sectionNm ?? "구간명 없음";
+
+              if (isNaN(lat) || isNaN(lng)) return;
+
+              const marker = new kakao.maps.Marker({
+                map,
+                position: new kakao.maps.LatLng(lat, lng),
+              });
+              markers.push(marker);
+
+              const infoWindow = new kakao.maps.InfoWindow({
+                content: `
+                <div style="padding:5px;font-size:13px;">
+                  <strong>${roadName}</strong><br>
+                  구간: ${section}<br>
+                  위험지수: ${risk}<br>
+                  등급: ${grade}
+                </div>`,
+              });
+
+              kakao.maps.event.addListener(marker, "click", function () {
+                infoWindow.open(map, marker);
+              });
+
+              container.innerHTML += `
+              <li>
+                🛣 <strong>${roadName}</strong> - ${section}<br>
+                위험지수: ${risk}, 등급: ${grade}
+              </li>`;
+            });
+
+            container.innerHTML += `</ul>`;
+          })
+          .catch((err) => {
+            console.error("데이터 조회 오류", err);
+            document.getElementById("gosokInfo").innerHTML =
+              "❌ 데이터 조회 중 오류가 발생했습니다.";
+          });
+      }
     </script>
   </body>
 </html>
